@@ -478,3 +478,128 @@
     display: block;
   }
 }
+
+/* ... (existing styles) */
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px 40px;
+  /* Adjust padding as needed */
+}
+
+.header .logo {
+  font-size: 25px;
+  font-family: 'Sriracha', cursive;
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: #000;
+  padding: 15px;
+  position: relative;
+}
+
+/* Add a style for the selected item */
+.nav-items a.selected::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 70%;
+  background-color: #5edaf0;
+  /* Add your preferred color */
+  position: absolute;
+  bottom: 0;
+}
+
+/* Mobile Menu Toggle styles */
+.menuToggle {
+  display: none;
+  /* Hide by default */
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Show the menu on mobile devices */
+@media (max-width: 768px) {
+  .nav-items {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    /* Adjust top position as needed */
+    left: 0;
+    right: 0;
+    background-color: #f5f5f5;
+    z-index: 1;
+  }
+
+  .nav-items.show {
+    display: flex;
+  }
+
+  .menuToggle {
+    display: block;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .form {
+    max-width: 100%;
+  }
+
+  .intro h1 {
+    font-size: 40px;
+  }
+
+  .achievements {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .achievements .work {
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .about_me {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .about_me img {
+    width: 100%;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .bottom_links {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .form {
+    padding: 10px;
+  }
+
+  .login_form {
+    padding: 10px;
+  }
+}
