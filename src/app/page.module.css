@@ -145,7 +145,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: #302f49;
-  padding: 40px 80px
+  padding: 0px 80px;
+  height: 92px;
 }
 
 .footer .copy {
@@ -161,7 +162,7 @@
 
 .bottom_links .links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 0 40px

@@ -8,13 +8,7 @@ const Footer = () => {
       <div className={styles.copy}>&copy; 2024 Developer</div>
       <div className={styles.bottom_links}>
         <div className={styles.links}>
-          <span>More Info</span>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
-        </div>
-        <div className={styles.links}>
-          <span>Social Links</span>
+          {/* <span>Social Links</span> */}
           <Link href="#">
             <i className="fab fa-facebook" />
           </Link>
