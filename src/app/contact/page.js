@@ -70,23 +70,22 @@ function ContactForm() {
 // Define the Contact page component
 const Contact = () => {
   return (
-    <main className={styles.main}>
-      <>
+    <>
+      <main className={styles.main}>
         {/* ... (other meta tags, title, and styles) */}
         <Header />
-        <main>
-          <div className={styles.intro} id="main">
-            <h1>Contact Us</h1>
-            <p>
-              Feel free to reach out to us for any inquiries or collaborations.
-            </p>
-            {/* Use the ContactForm Client Component */}
-            <ContactForm />
-          </div>
-        </main>
-        <Footer />
-      </>
-    </main>
+        <div className={styles.intro} id="main">
+          <h1>Contact Us</h1>
+          <p>
+            Feel free to reach out to us for any inquiries or collaborations.
+          </p>
+          {/* Use the ContactForm Client Component */}
+          <ContactForm />
+        </div>
+      </main>
+
+      <Footer />
+    </>
   );
 };
 

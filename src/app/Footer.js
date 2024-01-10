@@ -6,6 +6,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.copy}>&copy; 2024 Developer</div>
+      <p>developer.vijay@yopmail.com</p>
       <div className={styles.bottom_links}>
         <div className={styles.links}>
           {/* <span>Social Links</span> */}
