@@ -2,39 +2,31 @@
 import { useRef } from "react";
 import { useAppSelector, useAppDispatch, useAppStore } from "../../lib/hooks";
 import {
-  initializeProduct,
-  setProductName,
+  initializeUser,
+  setUserData,
 } from "../../lib/features/product/productSlice";
 
 
-export default function ProductName({ product }) {
-    let temp  = [name=>'dddsdf'];
-    // let temp  = [];
-
-    console.log('>>>>>>>fsdf',temp[0]?.name);
+export default function ProductName({ data }) {
 
   const store = useAppStore();
   const dispatch = useAppDispatch();
   const initialized = useRef(false);
 
   if (!initialized.current) {
-    dispatch(
-      initializeProduct({ productName: product ? product.productName:'' })
-    );
+    dispatch(initializeUser({ userData: data ? data.userData : "" }));
     initialized.current = true;
   }
 
   // Ensure that state.product and state.product.productData are defined before accessing productName
-  const name = useAppSelector(
-    (state) => state.product?.productData?.productName
-  );
+  const name = useAppSelector((state) => state.data?.userData);
 
   console.log('>>>>>>>>>>>>',name);
 
   return (
     <input
       value={name}
-      onChange={(e) => dispatch(setProductName(e.target.value))}
+      onChange={(e) => dispatch(setUserData(e.target.value))}
     />
   );
 }

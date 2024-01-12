@@ -10,7 +10,7 @@ module.exports = {
 
     domains: [
       {
-        domain: "localhost",
+        domain: "kra.betaeserver.com",
         defaultLocale: "en-US",
       },
       {
@@ -23,5 +23,8 @@ module.exports = {
         locales: ["nl-BE"],
       },
     ],
+  },
+  images: {
+    domains: ["kra.betaeserver.com"],
   },
 };

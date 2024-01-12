@@ -17,7 +17,7 @@ import storage from "redux-persist/lib/storage"; // defaults to localStorage for
 import productReducer from "./features/product/productSlice";
 
 const rootReducer = combineReducers({
-  product: productReducer,
+  data: productReducer,
   // Add other reducers here if you have them
 });
 

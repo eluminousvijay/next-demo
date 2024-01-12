@@ -43,29 +43,6 @@ export default function Home() {
             </div>
           </div>
         </main>
-        {/* <footer className={styles.footer}>
-          <div className={styles.copy}>© 2024 Developer</div>
-          <div className={styles.bottom_links}>
-            <div className={styles.links}>
-              <span>More Info</span>
-              <a href="#">Home</a>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
-            </div>
-            <div className={styles.links}>
-              <span>Social Links</span>
-              <a href="#">
-                <i className="fab fa-facebook" />
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter" />
-              </a>
-              <a href="#">
-                <i className="fab fa-instagram" />
-              </a>
-            </div>
-          </div>
-        </footer> */}
         <Footer/>
       </>
     </main>

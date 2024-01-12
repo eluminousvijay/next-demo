@@ -1,28 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const productSlice = createSlice({
-  name: "product",
+  name: "user",
   initialState: {
-    productData: {
-      productName: "",
-    },
+    userData: {},
     initialized: false,
   },
   reducers: {
-    setProductName: (state, action) => {
-      state.productData = state.productData || {};
-      state.productData.productName = action.payload;
+    setUserData: (state, action) => {
+      state.userData = state.userData || {};
+      state.userData = action.payload;
     },
-    initializeProduct: (state, action) => {
+    initializeUser: (state, action) => {
       if (!state.initialized) {
         console.log('>>>>>>>',action);
-        state.productData.productName = action.payload.productName || "";
+        state.userData = action.payload || "";
         state.initialized = true;
       }
     },
   },
 });
 
-export const { setProductName, initializeProduct } = productSlice.actions;
+export const { setUserData, initializeUser } = productSlice.actions;
 
 export default productSlice.reducer;

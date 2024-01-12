@@ -1,8 +1,29 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../page.module.css";
+import { loginUser, setUserToken } from "../api/backed/route";
+import { useRouter } from 'next/navigation';
+import { useRef } from "react";
+import { useAppSelector, useAppDispatch, useAppStore } from "../../lib/hooks";
+import {
+  initializeUser,
+  setUserData,
+} from "../../lib/features/product/productSlice";
 
-const Login = () => {
+const Login = ({ user }) => {
+  const router = useRouter();
+  // state
+  const store = useAppStore();
+  const dispatch = useAppDispatch();
+  const initialized = useRef(false);
+
+  if (!initialized.current) {
+    dispatch(initializeUser({ userData: user ? user.userData : "" }));
+    initialized.current = true;
+  }
+  const name = useAppSelector((state) => state.user?.userData);
+
+  //
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -16,6 +37,21 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login submitted:", formData);
+    loginUser({ email: formData.username, password: formData.password }).then(
+      (response) => {
+        if (response.status === "success") {
+          console.log(">>>>>>>response", response);
+          setUserToken(response.data.access_token);
+          dispatch(setUserData(response.data));
+          // if(response.data.role_id === 1){
+          //   dispatch(adminLogin(response.data));
+          // }else{
+          //   dispatch(loginSuccess(response.data));
+          // }
+          router.push("/user", { scroll: false });
+        }
+      }
+    );
   };
 
   return (
