@@ -33,18 +33,27 @@
     .userCard {
         width: calc(50% - 20px);
     }
+        .h2 {
+            font-size: 1rem;
+        }
 }
 
 @media (min-width: 768px) {
     .userCard {
         width: calc(33.3333% - 20px);
     }
+        .h2 {
+            font-size: 1rem;
+        }
 }
 
 @media (min-width: 992px) {
     .userCard {
         width: calc(25% - 20px);
     }
+        .h2 {
+            font-size: 1rem;
+        }
 }
 
 .userCard:hover {

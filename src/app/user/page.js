@@ -10,6 +10,8 @@ import styles from "./page.module.css";
 import { useEffect } from "react";
 import Image from "next/image";
 import { getUser, setUserToken } from "../api/backed/route";
+import Header from "../Header";
+import Footer from "../Footer";
 
 const UserList = ({ data }) => {
   const store = useAppStore();
@@ -54,39 +56,43 @@ const UserList = ({ data }) => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>User Listing</h1>
-      <div className={styles.userList}>
-        {userData.map((user) => (
-          <div key={user.id} className={styles.userCard}>
-            <div className={styles.cardContent}>
-              <Image
-                src={getUserProfilePhotoUrl(user.profile_photo_path)}
-                alt={`Profile of ${user.first_name}`}
-                className={styles.userImage}
-                width={100}
-                height={100}
-              />
-              <h2>{user.first_name + " " + user.last_name}</h2>
-              <div className={styles.buttons}>
-                <button
-                  className={styles.editButton}
-                  onClick={() => handleEdit(user.id)}
-                >
-                  Edit
-                </button>
-                <button
-                  className={styles.deleteButton}
-                  onClick={() => handleDelete(user.id)}
-                >
-                  Delete
-                </button>
+    <>
+      <Header data={userInfo} />
+      <div className={styles.container}>
+        <h1 className={styles.title}>User Listing</h1>
+        <div className={styles.userList}>
+          {userData.map((user) => (
+            <div key={user.id} className={styles.userCard}>
+              <div className={styles.cardContent}>
+                <Image
+                  src={getUserProfilePhotoUrl(user.profile_photo_path)}
+                  alt={`Profile of ${user.first_name}`}
+                  className={styles.userImage}
+                  width={100}
+                  height={100}
+                />
+                <h2>{user.first_name + " " + user.last_name}</h2>
+                <div className={styles.buttons}>
+                  <button
+                    className={styles.editButton}
+                    onClick={() => handleEdit(user.id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className={styles.deleteButton}
+                    onClick={() => handleDelete(user.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
