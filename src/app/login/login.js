@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "../page.module.css";
+import styles from "./page.module.css";
 import { loginUser, setUserToken } from "../api/backed/route";
 import { useRouter } from 'next/navigation';
 import { useRef } from "react";
@@ -66,6 +66,7 @@ const Login = ({ user }) => {
               type="text"
               id="username"
               name="username"
+              className="form-control"
               value={formData.username}
               onChange={handleChange}
               required
@@ -80,6 +81,7 @@ const Login = ({ user }) => {
               type="password"
               id="password"
               name="password"
+              className="form-control"
               value={formData.password}
               onChange={handleChange}
               required
