@@ -16,25 +16,42 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between;
 }
 
 .userCard {
     background-color: #f5f5f5;
     border: 2px solid #ddd;
-    /* Border for the card */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(25% - 20px);
-    margin-bottom: 20px;
+    width: 100%;
     box-sizing: border-box;
-    /* Include padding and border in the total width */
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (min-width: 576px) {
+    .userCard {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (min-width: 768px) {
+    .userCard {
+        width: calc(33.3333% - 20px);
+    }
+}
+
+@media (min-width: 992px) {
+    .userCard {
+        width: calc(25% - 20px);
+    }
 }
 
 .userCard:hover {
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
+
 .cardContent {
     display: flex;
     flex-direction: column;

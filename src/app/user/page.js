@@ -90,5 +90,4 @@ const UserList = ({ data }) => {
   );
 };
 
-
 export default UserList;

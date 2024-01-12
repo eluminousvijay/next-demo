@@ -6,9 +6,11 @@ export function middleware(request) {
 
   const isUserLoggedIn = /* Implement your logic to check if the user is logged in */ true;
 
-  if (request.nextUrl.pathname.startsWith("/user") && !isUserLoggedIn) {
-    return NextResponse.redirect("/login");
-  }
+  // if (request.nextUrl.pathname.startsWith("/user") && !isUserLoggedIn) {
+  //   return NextResponse.redirect("/login");
+  // }else{
+  //   return NextResponse.redirect("/user");
+  // }
 
   // if (request.nextUrl.pathname.startsWith("/dashboard") && !isUserLoggedIn) {
   //   return NextResponse.redirect("/login");
