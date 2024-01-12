@@ -46,7 +46,7 @@ function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <div className={styles.row}>
+      {/* <div className={styles.row}>
         <div className={styles.col}>
           <label className={styles.label} htmlFor="name"> Name: </label>
           <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
@@ -55,10 +55,49 @@ function ContactForm() {
           <label className={styles.label} htmlFor="email"> Email: </label>
           <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
+      </div> */}
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            class="form-control"
+            placeholder="Name"
+            aria-label="Name"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            class="form-control"
+            placeholder="Email"
+            aria-label="Email"
+          />
+        </div>
       </div>
 
-      <label className={styles.label} htmlFor="message"> Message: </label>
-      <textarea className={styles.textarea} id="message" name="message" rows={4} value={formData.message} onChange={handleChange}  required ></textarea>
+      <label className={styles.label} htmlFor="message">
+        {" "}
+        Message:{" "}
+      </label>
+      <textarea
+        className={styles.textarea}
+        id="message"
+        name="message"
+        rows={4}
+        value={formData.message}
+        onChange={handleChange}
+        required
+      ></textarea>
 
       <button className={styles.button} type="submit">
         Submit
