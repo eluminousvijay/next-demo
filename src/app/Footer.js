@@ -10,7 +10,6 @@ const Footer = () => {
       <p>developer.vijay@yopmail.com</p>
       <div className={styles.bottom_links}>
         <div className={styles.links}>
-          {/* <span>Social Links</span> */}
           <Link href="#">
             <i className="fab fa-facebook" />
           </Link>
