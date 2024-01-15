@@ -20,6 +20,19 @@ export const loginUser = async (config = {}) => {
   }
 };
 
+// export const getUser = (data = {}) => {
+//   return new Promise((resolve, reject) => {
+//     axiosInstance
+//       .post("/api/user/allUsers", data)
+//       .then((response) => {
+//         resolve(response.data);
+//       })
+//       .catch((error) => {
+//         reject(error);
+//       });
+//   });
+// };
+
 export const getUser = async (data = {}) => {
   try {
     const response = await axiosInstance.post("/api/user/allUsers", data);

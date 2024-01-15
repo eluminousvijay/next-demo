@@ -8,12 +8,10 @@ export const productSlice = createSlice({
   },
   reducers: {
     setUserData: (state, action) => {
-      state.userData = state.userData || {};
       state.userData = action.payload;
     },
     initializeUser: (state, action) => {
       if (!state.initialized) {
-        console.log('>>>>>>>',action);
         state.userData = action.payload || "";
         state.initialized = true;
       }

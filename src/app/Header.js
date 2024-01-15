@@ -14,7 +14,6 @@ const Header = ({data, user}) => {
   const [selectedNavItem, setSelectedNavItem] = useState("");
   const [currentPath, setCurrentPath] = useState("");
   const [userData, setUserData] = useState(data);
-  console.log("userData>>>", userData);
 
   const store = useAppStore();
   const dispatch = useAppDispatch();
@@ -46,6 +45,7 @@ const Header = ({data, user}) => {
   };
 
   const handleLogOut = () => {
+    localStorage.clear();
     dispatch(setUserData(''));
   };
 
