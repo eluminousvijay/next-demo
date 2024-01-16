@@ -92,6 +92,13 @@ const Header = ({data, user}) => {
             Contact
           </Link>
           <Link
+            href="/blog"
+            className={currentPath === "/blog" ? styles.selected : ""}
+            onClick={() => handleNavItemClick("blog")}
+          >
+            Blogs
+          </Link>
+          <Link
             href="/login"
             className={currentPath === "/login" ? styles.selected : ""}
             onClick={() => handleNavItemClick("login")}
@@ -110,10 +117,7 @@ const Header = ({data, user}) => {
           >
             Users
           </Link>
-          <Link
-            href=""
-            onClick={() => handleLogOut()}
-          >
+          <Link href="" onClick={() => handleLogOut()}>
             Logout
           </Link>
         </nav>

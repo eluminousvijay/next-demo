@@ -4,7 +4,7 @@ import styles from "../page.module.css";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const YourMainPage = () => {
+const loginPage = () => {
   return (
     <main className={styles.main}>
       <Header />
@@ -40,4 +40,4 @@ const YourMainPage = () => {
   );
 };
 
-export default YourMainPage;
+export default loginPage;
