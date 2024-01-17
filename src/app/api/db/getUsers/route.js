@@ -5,7 +5,7 @@ export async function POST(request) {
   try {
     // if (request.method === "POST") {
     const users = await sql`SELECT * FROM Users;`;
-      alert(users);
+    //   alert(users);
     return NextResponse.json({ users: users }, { status: 200 });
     // } else {
     //   return NextResponse.json(
