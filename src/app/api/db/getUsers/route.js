@@ -1,12 +1,12 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
-export default async function handler(request) {
+export async function POST(request) {
   try {
     // if (request.method === "POST") {
-      const users = await sql`SELECT * FROM Users;`;
-    //   alert(users);
-      return NextResponse.json({ users: users }, { status: 200 });
+    const users = await sql`SELECT * FROM Users;`;
+      alert(users);
+    return NextResponse.json({ users: users }, { status: 200 });
     // } else {
     //   return NextResponse.json(
     //     { error: "Method not allowed" },
