@@ -56,7 +56,7 @@ export const getUser = async (data = {}) => {
       headers: {
         "Content-Type": "application/json",
       },
-      // body: JSON.stringify(formData),
+      body: '',
     });
 
     if (!res.ok) {
