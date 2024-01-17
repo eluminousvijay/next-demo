@@ -47,17 +47,19 @@ export const loginUser = async (formData) => {
 //   });
 // };
 
+// export const getUser = async (data = {}) => {
+//   try {
+//     const response = await axiosInstance.post("/api/user/allUsers", data);
+//     return response.data;
+   
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+// Your client-side code
 export const getUser = async (data = {}) => {
   try {
-    // const response = await axiosInstance.post("/api/user/allUsers", data);
-    // return response.data;
-    const res = await fetch(API_BASE_URL_OTHER + "api/db/getUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: '',
-    });
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/getUser");
 
     if (!res.ok) {
       throw new Error("Failed to send data");
