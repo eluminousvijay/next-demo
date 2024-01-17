@@ -27,7 +27,7 @@ export async function POST(request) {
         'userData' = user,
         'token' = token,
         'status' = 200,
-      ]
+      ];
       return NextResponse.json({ data }, { status: 200 });
     } else {
       throw new Error("Invalid credentials");
