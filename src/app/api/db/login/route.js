@@ -28,7 +28,7 @@ export async function POST(request) {
         UPDATE Users
         SET 
           token = ${token},
-          mobile_number = ${mobile_number}, -- Add the new fields here
+          mobile_number = ${mobile_number},
           email = ${email}
         WHERE user_id = ${user.user_id};
       `;
