@@ -32,8 +32,8 @@ const UserList = ({ data }) => {
   const GetData = () => {
     getUser({ search_input: "" }).then((response) => {
       console.log(">>>>response>>>", response);
-      if (response.status === "success") {
-        let userData = response.data;
+      if (response.users.length > 0) {
+        let userData = response.users;
         setUserData(userData);
       }
     });
@@ -66,23 +66,24 @@ const UserList = ({ data }) => {
             <div key={user.id} className={styles.userCard}>
               <div className={styles.cardContent}>
                 <Image
-                  src={getUserProfilePhotoUrl(user.profile_photo_path)}
-                  alt={`Profile of ${user.first_name}`}
+                  // src={getUserProfilePhotoUrl(user.profile_photo_path)}
+                  src={''}
+                  alt={`Profile of ${user.name}`}
                   className={styles.userImage}
                   width={100}
                   height={100}
                 />
-                <h2>{user.first_name + " " + user.last_name}</h2>
+                <h2>{user.name}</h2>
                 <div className={styles.buttons}>
                   <button
                     className={styles.editButton}
-                    onClick={() => handleEdit(user.id)}
+                    onClick={() => handleEdit(user.user_id)}
                   >
                     Edit
                   </button>
                   <button
                     className={styles.deleteButton}
-                    onClick={() => handleDelete(user.id)}
+                    onClick={() => handleDelete(user.user_id)}
                   >
                     Delete
                   </button>
