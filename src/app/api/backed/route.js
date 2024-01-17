@@ -58,7 +58,7 @@ export const loginUser = async (formData) => {
 // };
 export const getUser = async () => {
   try {
-    const res = await fetch(API_BASE_URL_OTHER + "api/db/getUser");
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/getUsers");
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");
