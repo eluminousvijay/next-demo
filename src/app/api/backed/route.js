@@ -13,7 +13,7 @@ export const setUserToken = (token) => {
 };
 
 export const loginUser = async (formData) => {
-  try {
+  try {console.log("formData>>", formData);
     // const response = await axiosInstance.post("/api/user/login", config);
     // return response.data;
     const res = await fetch(API_BASE_URL_OTHER + "api/db/login", {

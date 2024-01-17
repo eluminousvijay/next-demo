@@ -2,7 +2,7 @@ import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  try {
+  try {console.log("request>>", request);
     const { username, password } = await request.json();
     if (!username || !password) {
       throw new Error("Username and password are required");

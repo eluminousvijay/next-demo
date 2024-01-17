@@ -36,22 +36,22 @@ const Login = ({ user }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login submitted:", formData);
-    loginUser({ email: formData.username, password: formData.password }).then(
-      (response) => {
-        if (response.status === "success") {
-          console.log(">>>>>>>response", response);
-          setUserToken(response.data.access_token);
-          dispatch(setUserData(response.data));
-          // if(response.data.role_id === 1){
-          //   dispatch(adminLogin(response.data));
-          // }else{
-          //   dispatch(loginSuccess(response.data));
-          // }
-          router.push("/user", { scroll: false });
-        }
+    loginUser({
+      username: formData.username,
+      password: formData.password,
+    }).then((response) => {
+      if (response.status === "success") {
+        console.log(">>>>>>>response", response);
+        setUserToken(response.data.access_token);
+        dispatch(setUserData(response.data));
+        // if(response.data.role_id === 1){
+        //   dispatch(adminLogin(response.data));
+        // }else{
+        //   dispatch(loginSuccess(response.data));
+        // }
+        router.push("/user", { scroll: false });
       }
-    );
+    });
   };
 
   return (
