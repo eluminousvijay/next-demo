@@ -3,7 +3,7 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
-export default async function handler(request) {
+export async function GET(request) {
   try {
     if (request.method === "GET") {
       const users = await sql`SELECT * FROM Users;`;
