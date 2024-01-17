@@ -5,7 +5,7 @@ export default async function handler(request) {
   try {
     // if (request.method === "POST") {
       const users = await sql`SELECT * FROM Users;`;
-      return NextResponse.json({ users: users.rows }, { status: 200 });
+      return NextResponse.json({ users: users }, { status: 200 });
     // } else {
     //   return NextResponse.json(
     //     { error: "Method not allowed" },
