@@ -14,5 +14,5 @@ export async function GET(request) {
   }
 
   const pets = await sql`SELECT * FROM Pets;`;
-  return NextResponse.json({ pets }, { status: 200 });
+  return NextResponse.json({ pets:pets.rows }, { status: 200 });
 }
