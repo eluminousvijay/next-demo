@@ -13,13 +13,23 @@ export async function POST(request) {
       WHERE name = ${username} AND password = ${password};
     `;
 
+    const mobile_number = 1234567891;
+    const email = 'vijay@yopmail.com';
     if (result.rows.length > 0) {
       const user = result.rows[0];
       const token = generateToken(16);
 
-      await sql`
+    //   await sql`
+    //     UPDATE Users
+    //     SET token = ${token}
+    //     WHERE user_id = ${user.user_id};
+    //   `;
+     await sql`
         UPDATE Users
-        SET token = ${token}
+        SET 
+          token = ${token},
+          mobile_number = ${mobile_number}, -- Add the new fields here
+          email = ${email}
         WHERE user_id = ${user.user_id};
       `;
 
