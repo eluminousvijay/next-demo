@@ -41,7 +41,7 @@ const Login = ({ user }) => {
       password: formData.password,
     }).then((response) => { console.log(">>>>>>>response", response);
       if (response.data.status === 200) {
-       setUserToken(response.data.token);
+        setUserToken(response.data.token);
         dispatch(setUserData(response.data));
         // if(response.data.role_id === 1){
         //   dispatch(adminLogin(response.data));

@@ -56,13 +56,12 @@ export const loginUser = async (formData) => {
 //     throw error;
 //   }
 // };
-// Your client-side code
-export const getUser = async (data = {}) => {
+export const getUser = async () => {
   try {
     const res = await fetch(API_BASE_URL_OTHER + "api/db/getUser");
 
     if (!res.ok) {
-      throw new Error("Failed to send data");
+      throw new Error("Failed to fetch data");
     }
 
     return res.json();
