@@ -13,27 +13,22 @@ export async function POST(request) {
       WHERE name = ${username} AND password = ${password};
     `;
 
-    const mobile_number = 1234567891;
-    const email = 'vijay@yopmail.com';
     if (result.rows.length > 0) {
       const user = result.rows[0];
       const token = generateToken(16);
 
-    //   await sql`
-    //     UPDATE Users
-    //     SET token = ${token}
-    //     WHERE user_id = ${user.user_id};
-    //   `;
-     await sql`
+      await sql`
         UPDATE Users
-        SET 
-          token = ${token},
-          mobile_number = ${mobile_number},
-          email = ${email}
+        SET token = ${token}
         WHERE user_id = ${user.user_id};
       `;
-
-      return NextResponse.json({ token }, { status: 200 });
+     
+      const data = [
+        'userData' = user,
+        'token' = token,
+        'status' = 200,
+      ]
+      return NextResponse.json({ data }, { status: 200 });
     } else {
       throw new Error("Invalid credentials");
     }

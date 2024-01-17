@@ -10,6 +10,8 @@ export async function GET(request) {
     const userStatus = searchParams.get("userStatus");
     const userPassword = searchParams.get("userPassword");
     const userToken = searchParams.get("userToken");
+    const userEmail = searchParams.get("userEmail");
+    const userMobile = searchParams.get("userMobile");
 
     // Check if required parameters are provided
     if (!userName || !userRole || !userStatus || !userPassword || !userToken) {
@@ -18,8 +20,8 @@ export async function GET(request) {
 
     // Insert a new user into the Users table
     await sql`
-      INSERT INTO Users (name, role, status, password, token)
-      VALUES (${userName}, ${userRole}, ${userStatus}, ${userPassword}, ${userToken});
+      INSERT INTO Users (name, mobile_number, email, role, status, password, token)
+      VALUES (${userName}, ${userMobile}, ${userEmail}, ${userRole}, ${userStatus}, ${userPassword}, ${userToken});
     `;
 
     // Retrieve all users from the Users table
