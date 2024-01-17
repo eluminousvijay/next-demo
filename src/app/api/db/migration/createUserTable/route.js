@@ -12,7 +12,6 @@ export async function GET(request) {
         AND table_name = 'Users'
       );
     `;
-
     if (tableExists.rows[0].exists) {
       // Drop the existing table if it exists
       await sql`DROP TABLE IF EXISTS Users;`;
