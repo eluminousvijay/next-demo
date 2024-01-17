@@ -13,7 +13,7 @@ export const setUserToken = (token) => {
 };
 
 export const loginUser = async (formData) => {
-  try {console.log("formData>>", formData);
+  try {
     // const response = await axiosInstance.post("/api/user/login", config);
     // return response.data;
     const res = await fetch(API_BASE_URL_OTHER + "api/db/login", {
@@ -49,8 +49,21 @@ export const loginUser = async (formData) => {
 
 export const getUser = async (data = {}) => {
   try {
-    const response = await axiosInstance.post("/api/user/allUsers", data);
-    return response.data;
+    // const response = await axiosInstance.post("/api/user/allUsers", data);
+    // return response.data;
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/getUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // body: JSON.stringify(formData),
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to send data");
+    }
+
+    return res.json();
   } catch (error) {
     throw error;
   }

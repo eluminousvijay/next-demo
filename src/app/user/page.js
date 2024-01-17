@@ -31,6 +31,7 @@ const UserList = ({ data }) => {
 
   const GetData = () => {
     getUser({ search_input: "" }).then((response) => {
+      console.log(">>>>response>>>", response);
       if (response.status === "success") {
         let userData = response.data;
         setUserData(userData);
