@@ -39,9 +39,9 @@ const Login = ({ user }) => {
     loginUser({
       username: formData.username,
       password: formData.password,
-    }).then((response) => {
-      if (response.status === "success") {
-        console.log(">>>>>>>response", response);
+    }).then((response) => { console.log(">>>>>>>response", response);
+      if (response.status === 200) {
+       
         setUserToken(response.data.access_token);
         dispatch(setUserData(response.data));
         // if(response.data.role_id === 1){
