@@ -2,8 +2,8 @@ import axios from "axios";
 
 // const API_BASE_URL = "http://localhost:9000";
 const API_BASE_URL = "https://kra.betaeserver.com";
-// const API_BASE_URL_OTHER = "https://developervijay.vercel.app/";
-const API_BASE_URL_OTHER = "http://localhost:3000/";
+const API_BASE_URL_OTHER = "https://developervijay.vercel.app/";
+// const API_BASE_URL_OTHER = "http://localhost:3000/";
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
