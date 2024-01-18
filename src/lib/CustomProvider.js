@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 function CustomProvider({children}) {
-  console.log('store......',store);
   return (
     <Provider store={store}>
       {/* <Component {...pageProps} /> */}

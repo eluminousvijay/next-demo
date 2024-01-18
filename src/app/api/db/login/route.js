@@ -2,7 +2,7 @@ import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  try {console.log("request>>", request);
+  try {
     const { username, password } = await request.json();
     if (!username || !password) {
       throw new Error("Username and password are required");
@@ -33,7 +33,10 @@ export async function POST(request) {
       throw new Error("Invalid credentials");
     }
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 401 });
+    console.error("Error:", error.message);
+
+    // Instead of NextResponse.json, directly return the error object
+    return { error: error.message, status: 401 };
   }
 }
 

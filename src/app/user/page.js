@@ -12,6 +12,7 @@ import Image from "next/image";
 import { getUser, setUserToken } from "../api/backed/route";
 import Header from "../Header";
 import Footer from "../Footer";
+import AddUser from "./addUser"; 
 
 const UserList = ({ data }) => {
   const store = useAppStore();
@@ -60,6 +61,7 @@ const UserList = ({ data }) => {
     <>
       <Header data={userInfo} />
       <div className={styles.container}>
+        <AddUser />
         <h1 className={styles.title}>User Listing</h1>
         <div className={styles.userList}>
           {userData.map((user) => (
@@ -67,7 +69,7 @@ const UserList = ({ data }) => {
               <div className={styles.cardContent}>
                 <Image
                   // src={getUserProfilePhotoUrl(user.profile_photo_path)}
-                  src={''}
+                  src={""}
                   alt={`Profile of ${user.name}`}
                   className={styles.userImage}
                   width={100}
@@ -93,7 +95,16 @@ const UserList = ({ data }) => {
           ))}
         </div>
       </div>
-      <Footer />
+      <div
+        style={{
+          position: "fixed",
+          left: "0",
+          bottom: 0,
+          width: "100%",
+        }}
+      >
+        <Footer />
+      </div>
     </>
   );
 };
