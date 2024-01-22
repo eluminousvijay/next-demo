@@ -25,6 +25,7 @@ const UserList = ({ data }) => {
   }
   const userInfo = useAppSelector((state) => state.data?.userData);
   const [userData, setUserData] = useState([]);
+  const [selectedUserData, setSelectedUserData] = useState();
   useEffect(() => {
     setUserToken(userInfo.access_token);
     GetData();
@@ -41,9 +42,8 @@ const UserList = ({ data }) => {
   };
   const [users, setUsers] = useState();
 
-  const handleEdit = (userId) => {
-    // Implement edit functionality
-    console.log(`Edit user with ID ${userId}`);
+  const handleEdit = (userData) => {
+    setSelectedUserData(userData);
   };
 
   const handleDelete = (userId) => {
@@ -67,7 +67,7 @@ const UserList = ({ data }) => {
     <>
       <Header data={userInfo} />
       <div className={styles.container}>
-        <AddUser onSubmit={handleAddUser} />
+        <AddUser onSubmit={handleAddUser} data={selectedUserData}/>
         <h1 className={styles.title}>User Listing</h1>
         <div className={styles.userList}>
           {userData.map((user) => (
@@ -75,7 +75,10 @@ const UserList = ({ data }) => {
               <div className={styles.cardContent}>
                 {/* src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" */}
                 <Image
-                  src="../../../public/user.jpg"
+                  // src={getUserProfilePhotoUrl(
+                  //   "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+                  // )}
+                  src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
                   alt={`Profile of ${user.name}`}
                   className={styles.userImage}
                   width={100}
@@ -85,7 +88,7 @@ const UserList = ({ data }) => {
                 <div className={styles.buttons}>
                   <button
                     className={styles.editButton}
-                    onClick={() => handleEdit(user.user_id)}
+                    onClick={() => handleEdit(user)}
                   >
                     Edit
                   </button>
