@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { addUser } from "../api/backed/route";
+import { addUser, updateUser } from "../api/backed/route";
 import { useEffect } from "react";
 
-const AddUser = ({ onSubmit,userData }) => {
+const AddUser = ({ onSubmit, userData }) => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
@@ -12,12 +12,19 @@ const AddUser = ({ onSubmit,userData }) => {
     status: "active",
   });
   console.log("data", userData);
- useEffect(() => {
-   // Check if userData contains data before opening the modal
-   if (userData) {
-     setShowModal(true);
-   }
- }, [userData]);
+  useEffect(() => {
+    // Check if userData contains data before opening the modal
+    if (userData) {
+      setFormData({
+        username: userData.name,
+        email: userData.email,
+        mobile: userData.mobile_number,
+        userRole: userData.role,
+        status: userData.status,
+      });
+      setShowModal(true);
+    }
+  }, [userData]);
   const handleOpenModal = () => {
     setShowModal(true);
   };
@@ -28,29 +35,56 @@ const AddUser = ({ onSubmit,userData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addUser({
-      userName: formData.username,
-      userRole: formData.userRole,
-      userStatus: formData.status,
-      userPassword: "Test@123",
-      userToken: '',
-      userEmail: formData.email,
-      userMobile: formData.mobile,
-    }).then((response) => {
-      console.log(">>>>>>>response", response);
-      if (response.data.status === 200) {
-        onSubmit();
-        setFormData({
-          username: "",
-          email: "",
-          mobile: "",
-          userRole: "Admin",
-          status: "active",
-        });
+    if (!userData) {
+      addUser({
+        userName: formData.username,
+        userRole: formData.userRole,
+        userStatus: formData.status,
+        userPassword: "Test@123",
+        userToken: "",
+        userEmail: formData.email,
+        userMobile: formData.mobile,
+      }).then((response) => {
+        console.log(">>>>>>>response", response);
+        if (response.data.status === 200) {
+          onSubmit();
+          setFormData({
+            username: "",
+            email: "",
+            mobile: "",
+            userRole: "Admin",
+            status: "active",
+          });
 
-        handleCloseModal();
-      }
-    });
+          handleCloseModal();
+        }
+      });
+    } else {
+      updateUser({
+        userId: userData.user_id,
+        userName: formData.username,
+        userRole: formData.userRole,
+        userStatus: formData.status,
+        userPassword: "Test@123",
+        userToken: "",
+        userEmail: formData.email,
+        userMobile: formData.mobile,
+      }).then((response) => {
+        console.log(">>>>>>>response", response);
+        if (response.data.status === 200) {
+          onSubmit();
+          setFormData({
+            username: "",
+            email: "",
+            mobile: "",
+            userRole: "Admin",
+            status: "active",
+          });
+
+          handleCloseModal();
+        }
+      });
+    }
   };
 
   const handleChange = (e) => {

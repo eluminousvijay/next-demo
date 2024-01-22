@@ -55,6 +55,27 @@ export const addUser = async (formData) => {
   }
 };
 
+export const updateUser = async (formData) => {
+  try {
+    console.log("route>>>>", formData);
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/updateUser", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to send data");
+    }
+
+    return res.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 // export const getUser = (data = {}) => {
 //   return new Promise((resolve, reject) => {
@@ -144,16 +165,5 @@ export const getDepartment = async (data = {}) => {
   }
 };
 
-export const updateUser = async (data = {}) => {
-  try {
-    const response = await axiosInstance.put(
-      "api/user/update/" + data.get("id"),
-      data
-    );
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
 
 export default axiosInstance;
