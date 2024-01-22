@@ -73,17 +73,24 @@ const UserList = ({ data }) => {
           {userData.map((user) => (
             <div key={user.id} className={styles.userCard}>
               <div className={styles.cardContent}>
-                {/* src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" */}
+                {/* <Image
+                  src={getUserProfilePhotoUrl(
+                    "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+                  )}
+                  src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+                  alt={`Profile of ${user.name}`}
+                  className={styles.userImage}
+                  width={100}
+                  height={100}
+                /> */}
                 <Image
-                  // src={getUserProfilePhotoUrl(
-                  //   "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
-                  // )}
                   src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
                   alt={`Profile of ${user.name}`}
                   className={styles.userImage}
                   width={100}
                   height={100}
                 />
+
                 <h2>{user.name}</h2>
                 <div className={styles.buttons}>
                   <button

@@ -24,7 +24,11 @@ module.exports = {
       },
     ],
   },
-  // images: {
-  //   domains: ["kra.betaeserver.com", "https://developervijay.vercel.app"],
-  // },
+  images: {
+    domains: [
+      "kra.betaeserver.com",
+      "https://developervijay.vercel.app",
+      "i.pinimg.com",
+    ],
+  },
 };
