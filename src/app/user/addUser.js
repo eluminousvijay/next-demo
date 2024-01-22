@@ -10,7 +10,12 @@ const AddUser = ({ onSubmit,userData }) => {
     userRole: "Admin",
     status: "active",
   });
-  console.log("data", userData);
+  console.log("data", userData);}
+  useEffect(() => {
+    if (userData) {
+      setShowModal(true);
+    }
+  }, [userData]);
   const handleOpenModal = () => {
     setShowModal(true);
   };
