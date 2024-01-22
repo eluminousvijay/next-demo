@@ -21,7 +21,6 @@ const AddUser = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     onSubmit();
     addUser({
       userName: formData.username,
       userRole: formData.userRole,
@@ -33,6 +32,7 @@ const AddUser = ({ onSubmit }) => {
     }).then((response) => {
       console.log(">>>>>>>response", response);
       if (response.data.status === 200) {
+        onSubmit();
         setFormData({
           username: "",
           email: "",
