@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { addUser } from "../api/backed/route";
 
-const AddUser = ({ onSubmit,userData }) => {
+const AddUser = ({ onSubmit,data }) => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
@@ -10,12 +10,12 @@ const AddUser = ({ onSubmit,userData }) => {
     userRole: "Admin",
     status: "active",
   });
-  console.log("data", userData);}
+  console.log("data", data);}
   useEffect(() => {
-    if (userData) {
+    if (data) {
       setShowModal(true);
     }
-  }, [userData]);
+  }, [data]);
   const handleOpenModal = () => {
     setShowModal(true);
   };
