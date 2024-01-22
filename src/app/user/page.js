@@ -54,7 +54,8 @@ const UserList = ({ data }) => {
   const getUserProfilePhotoUrl = (photoPath) => {
     const baseUrl = "https://kra.betaeserver.com";
 
-    return `${baseUrl}${photoPath}`;
+    // return `${baseUrl}${photoPath}`;
+    return photoPath;
   };
 
   const handleAddUser = () => {
@@ -72,9 +73,11 @@ const UserList = ({ data }) => {
           {userData.map((user) => (
             <div key={user.id} className={styles.userCard}>
               <div className={styles.cardContent}>
+                {/* src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" */}
                 <Image
-                  // src={getUserProfilePhotoUrl(user.profile_photo_path)}
-                  src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+                  src={getUserProfilePhotoUrl(
+                    "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+                  )}
                   alt={`Profile of ${user.name}`}
                   className={styles.userImage}
                   width={100}
