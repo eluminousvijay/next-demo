@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { addUser } from "../api/backed/route";
 
 const AddUser = () => {
    const [showModal, setShowModal] = useState(false);
@@ -6,7 +7,8 @@ const AddUser = () => {
      username: "",
      email: "",
      mobile: "",
-     status: "active", // Default status
+     userRole: "Admin",
+     status: "active",
    });
 
    const handleOpenModal = () => {
@@ -19,20 +21,30 @@ const AddUser = () => {
 
    const handleSubmit = (e) => {
      e.preventDefault();
-
-     // Add your logic to handle form submission
      console.log("Form data submitted:", formData);
+    addUser({
+      userName: formData.username,
+      userRole: formData.userRole,
+      userStatus: formData.status,
+      userPassword: "Test@123",
+      userToken: null,
+      userEmail: formData.email,
+      userMobile: formData.mobile,
+    }).then((response) => {
+      console.log(">>>>>>>response", response);
+      if (response.data.status === 200) {
+        setFormData({
+          username: "",
+          email: "",
+          mobile: "",
+          userRole: "Admin",
+          status: "active",
+        });
 
-     // You can reset the form fields after submission if needed
-     setFormData({
-       username: "",
-       email: "",
-       mobile: "",
-       status: "active",
-     });
-
-     // Close the modal
-     handleCloseModal();
+        handleCloseModal();
+      }
+    });
+    
    };
 
    const handleChange = (e) => {

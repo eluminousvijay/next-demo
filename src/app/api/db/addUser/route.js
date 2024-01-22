@@ -23,7 +23,11 @@ export async function POST(request) {
     `;
 
     const users = await sql`SELECT * FROM Users;`;
-    return NextResponse.json({ users: users.rows }, { status: 200 });
+    const data = {
+      userData: users,
+      status: 200,
+    };
+    return NextResponse.json({ data }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
