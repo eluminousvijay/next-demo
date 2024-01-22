@@ -13,7 +13,7 @@ export async function POST(request) {
       userMobile,
     } = await request.json();
 
-    if (!userName || !userRole || !userStatus || !userPassword || !userToken) {
+    if (!userName || !userRole || !userStatus || !userPassword) {
       throw new Error("All user details are required");
     }
 
