@@ -74,7 +74,9 @@ const UserList = ({ data }) => {
               <div className={styles.cardContent}>
                 <Image
                   // src={getUserProfilePhotoUrl(user.profile_photo_path)}
-                  src={""}
+                  src={
+                    "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+                  }
                   alt={`Profile of ${user.name}`}
                   className={styles.userImage}
                   width={100}
