@@ -67,7 +67,7 @@ const UserList = ({ data }) => {
     <>
       <Header data={userInfo} />
       <div className={styles.container}>
-        <AddUser onSubmit={handleAddUser} data={selectedUserData}/>
+        <AddUser onSubmit={handleAddUser} userData={selectedUserData} />
         <h1 className={styles.title}>User Listing</h1>
         <div className={styles.userList}>
           {userData.map((user) => (
