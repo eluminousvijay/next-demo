@@ -27,7 +27,7 @@ const AddUser = () => {
       userRole: formData.userRole,
       userStatus: formData.status,
       userPassword: "Test@123",
-      userToken: null,
+      userToken: '',
       userEmail: formData.email,
       userMobile: formData.mobile,
     }).then((response) => {
