@@ -76,6 +76,27 @@ export const updateUser = async (formData) => {
   }
 };
 
+export const deleteUser = async (formData) => {
+  try {
+    console.log("route>>>>", formData);
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/deleteUser", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to send data");
+    }
+
+    return res.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 // export const getUser = (data = {}) => {
 //   return new Promise((resolve, reject) => {

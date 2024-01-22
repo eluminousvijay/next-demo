@@ -60,7 +60,7 @@ const Header = ({data, user}) => {
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
       />
-      <a href="#" className={styles.logo}>
+      <a href="/" className={styles.logo}>
         Developer
       </a>
       <div className={styles.menuToggle} onClick={toggleMenu}>

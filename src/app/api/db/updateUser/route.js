@@ -42,10 +42,10 @@ export async function PUT(request) {
     `;
 
     // Fetch updated user data
-    const updatedUsers = await sql`SELECT * FROM Users;`;
+    // const updatedUsers = await sql`SELECT * FROM Users;`;
 
     const data = {
-      userData: updatedUsers,
+    //   userData: updatedUsers,
       status: 200,
     };
 

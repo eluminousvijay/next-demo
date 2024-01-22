@@ -9,7 +9,7 @@ import {
 import styles from "./page.module.css";
 import { useEffect } from "react";
 import Image from "next/image";
-import { getUser, setUserToken } from "../api/backed/route";
+import { getUser, setUserToken, deleteUser } from "../api/backed/route";
 import Header from "../Header";
 import Footer from "../Footer";
 import AddUser from "./addUser"; 
@@ -47,8 +47,15 @@ const UserList = ({ data }) => {
   };
 
   const handleDelete = (userId) => {
-    // Implement delete functionality
-    setUsers(users.filter((user) => user.id !== userId));
+    // setUsers(users.filter((user) => user.id !== userId));
+    deleteUser({
+      user_id: userId,
+    }).then((response) => {
+      console.log(">>>>>>>response", response);
+      if (response.data.status === 200) {
+        GetData();
+      }
+    });
   };
 
   const getUserProfilePhotoUrl = (photoPath) => {
