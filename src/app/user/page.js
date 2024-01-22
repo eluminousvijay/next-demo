@@ -76,7 +76,7 @@ const UserList = ({ data }) => {
                 {/* src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" */}
                 <Image
                   src={getUserProfilePhotoUrl(
-                    "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
+                    "https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"
                   )}
                   alt={`Profile of ${user.name}`}
                   className={styles.userImage}
