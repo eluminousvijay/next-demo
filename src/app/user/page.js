@@ -57,11 +57,16 @@ const UserList = ({ data }) => {
     return `${baseUrl}${photoPath}`;
   };
 
+  const handleAddUser = () => {
+    console.log("Form data submitted:");
+     GetData();
+  };
+
   return (
     <>
       <Header data={userInfo} />
       <div className={styles.container}>
-        <AddUser />
+        <AddUser onSubmit={handleAddUser} />
         <h1 className={styles.title}>User Listing</h1>
         <div className={styles.userList}>
           {userData.map((user) => (

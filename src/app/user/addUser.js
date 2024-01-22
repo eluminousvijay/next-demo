@@ -1,27 +1,27 @@
 import { useState } from "react";
 import { addUser } from "../api/backed/route";
 
-const AddUser = () => {
-   const [showModal, setShowModal] = useState(false);
-   const [formData, setFormData] = useState({
-     username: "",
-     email: "",
-     mobile: "",
-     userRole: "Admin",
-     status: "active",
-   });
+const AddUser = ({ onSubmit }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    mobile: "",
+    userRole: "Admin",
+    status: "active",
+  });
 
-   const handleOpenModal = () => {
-     setShowModal(true);
-   };
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
 
-   const handleCloseModal = () => {
-     setShowModal(false);
-   };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
-   const handleSubmit = (e) => {
-     e.preventDefault();
-     console.log("Form data submitted:", formData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+     onSubmit();
     addUser({
       userName: formData.username,
       userRole: formData.userRole,
@@ -44,13 +44,12 @@ const AddUser = () => {
         handleCloseModal();
       }
     });
-    
-   };
+  };
 
-   const handleChange = (e) => {
-     const { name, value } = e.target;
-     setFormData((prevData) => ({ ...prevData, [name]: value }));
-   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
   return (
     <>
