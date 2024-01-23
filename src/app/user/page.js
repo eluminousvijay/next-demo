@@ -192,9 +192,9 @@ const UserList = ({ data }) => {
           width: "100%",
         }}
       > */}
-      <div className="fixed-bottom">
+      {/* <div className="fixed-bottom">
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 };

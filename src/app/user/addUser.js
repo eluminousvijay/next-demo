@@ -190,14 +190,10 @@ const AddUser = ({ onSubmit, userData }) => {
                       <option value="inactive">Inactive</option>
                     </select>
                   </div>
-                  {/* Submit button */}
-                  <button type="submit" className="btn btn-primary">
-                    Submit
-                  </button>
                 </form>
               </div>
 
-              {/* <div className="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"
@@ -205,10 +201,10 @@ const AddUser = ({ onSubmit, userData }) => {
                 >
                   Close
                 </button>
-                <button type="button" className="btn btn-primary">
-                  Save changes
+                <button type="submit" className="btn btn-primary">
+                  Submit
                 </button>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
