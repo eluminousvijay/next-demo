@@ -115,7 +115,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.editButton:hover,
-.deleteButton:hover {
+.editButton:hover {
     background-color: #4ac0e0;
+}
+
+.deleteButton:hover {
+    background-color: #f80a0a;
 }
