@@ -67,6 +67,9 @@ const UserList = ({ data }) => {
     });
   };
 
+  const handleCloseModal = () => {
+    setShowConfirmBox(false);
+  };
   const getUserProfilePhotoUrl = (photoPath) => {
     const baseUrl = "https://kra.betaeserver.com";
 
