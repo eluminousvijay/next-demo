@@ -26,6 +26,9 @@ const UserList = ({ data }) => {
   const userInfo = useAppSelector((state) => state.data?.userData);
   const [userData, setUserData] = useState([]);
   const [selectedUserData, setSelectedUserData] = useState();
+  const [showConfirmBox, setShowConfirmBox] = useState(false);
+  const [userID, setUserID] = useState();
+
   useEffect(() => {
     setUserToken(userInfo.access_token);
     GetData();
@@ -46,10 +49,16 @@ const UserList = ({ data }) => {
     setSelectedUserData(userData);
   };
 
-  const handleDelete = (userId) => {
+   const handleConfirmBox = (user_id) => {
+     setUserID(user_id);
+     setShowConfirmBox((prevValue) => !prevValue);
+   };
+
+
+  const handleDelete = () => {
     // setUsers(users.filter((user) => user.id !== userId));
     deleteUser({
-      user_id: userId,
+      user_id: userID,
     }).then((response) => {
       console.log(">>>>>>>response", response);
       if (response.data.status === 200) {
@@ -108,7 +117,7 @@ const UserList = ({ data }) => {
                   </button>
                   <button
                     className={styles.deleteButton}
-                    onClick={() => handleDelete(user.user_id)}
+                    onClick={() => handleConfirmBox(user.user_id)}
                   >
                     Delete
                   </button>
@@ -118,6 +127,61 @@ const UserList = ({ data }) => {
           ))}
         </div>
       </div>
+      {showConfirmBox ? (
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          style={{ display: "contents" }}
+        >
+          <div
+            className="modal-dialog modal-dialog-scrollable"
+            style={{
+              height: "100%",
+              width: "100%",
+              position: "fixed",
+              margin: "auto",
+            }}
+          >
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  Delete User
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={handleCloseModal}
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>Are you sure you want to delete this user?</p>
+              </div>
+
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleCloseModal}
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => handleDelete()}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       <div
         style={{
           position: "fixed",

@@ -111,7 +111,7 @@ const AddUser = ({ onSubmit, userData }) => {
           style={{ display: "contents" }}
         >
           <div
-            className="modal-dialog"
+            className="modal-dialog modal-dialog-scrollable"
             style={{
               height: "100%",
               width: "100%",
