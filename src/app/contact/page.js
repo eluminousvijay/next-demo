@@ -4,6 +4,8 @@ import Header from "../Header";
 import Footer from "../Footer";
 import styles from "../page.module.css";
 import { createContact} from "../api/backed/route";
+import { Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 // Define a Client Component for the form handling
 function ContactForm() {
@@ -27,6 +29,9 @@ function ContactForm() {
           email: "",
           message: "",
         });
+        toast.success(
+          "Thank you for your submission! We will get back to you soon."
+        );
       }
     });
   };
@@ -39,8 +44,9 @@ function ContactForm() {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      {/* <div className={styles.row}>
+    <>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        {/* <div className={styles.row}>
         <div className={styles.col}>
           <label className={styles.label} htmlFor="name"> Name: </label>
           <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
@@ -50,53 +56,55 @@ function ContactForm() {
           <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
       </div> */}
-      <div class="row">
-        <div class="col">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            class="form-control"
-            placeholder="Name"
-            aria-label="Name"
-          />
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              class="form-control"
+              placeholder="Name"
+              aria-label="Name"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              class="form-control"
+              placeholder="Email"
+              aria-label="Email"
+            />
+          </div>
         </div>
-        <div class="col">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            class="form-control"
-            placeholder="Email"
-            aria-label="Email"
-          />
-        </div>
-      </div>
 
-      <label className={styles.label} htmlFor="message">
-        {" "}
-        Message:{" "}
-      </label>
-      <textarea
-        className={styles.textarea}
-        id="message"
-        name="message"
-        rows={4}
-        value={formData.message}
-        onChange={handleChange}
-        required
-      ></textarea>
+        <label className={styles.label} htmlFor="message">
+          {" "}
+          Message:{" "}
+        </label>
+        <textarea
+          className={styles.textarea}
+          id="message"
+          name="message"
+          rows={4}
+          value={formData.message}
+          onChange={handleChange}
+          required
+        ></textarea>
 
-      <button className={styles.button} type="submit">
-        Submit
-      </button>
-    </form>
+        <button className={styles.button} type="submit">
+          Submit
+        </button>
+      </form>
+      <Toaster position="bottom-center" />
+    </>
   );
 }
 
