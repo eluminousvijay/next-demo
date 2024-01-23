@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import styles from "../page.module.css";
+import { createContact} from "../api/backed/route";
 
 // Define a Client Component for the form handling
 function ContactForm() {
@@ -12,29 +13,22 @@ function ContactForm() {
     message: "",
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log("Form submitted!", formData);
-
-    // You can use fetch or any other method to send data to the server
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        console.log("Form data sent successfully!");
-      } else {
-        console.error("Failed to send form data.");
+    createContact({
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    }).then((response) => {
+      console.log(">>>>>>>response", response);
+      if (response.data.status === 200) {
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    });
   };
 
   const handleChange = (e) => {
