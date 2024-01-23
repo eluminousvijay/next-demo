@@ -139,7 +139,7 @@ const UserList = ({ data }) => {
           style={{ display: "contents" }}
         >
           <div
-            className="modal-dialog modal-dialog-scrollable"
+            className="modal-dialog modal-dialog-centered"
             style={{
               height: "100%",
               width: "100%",
