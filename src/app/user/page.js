@@ -143,8 +143,7 @@ const UserList = ({ data }) => {
             style={{
               height: "100%",
               width: "100%",
-              position: "fixed",
-              margin: "auto",
+              marginTop: "-228px",
             }}
           >
             <div className="modal-content">
