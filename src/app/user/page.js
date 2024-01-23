@@ -60,8 +60,8 @@ const UserList = ({ data }) => {
     deleteUser({
       user_id: userID,
     }).then((response) => {
-      console.log(">>>>>>>response", response);
       if (response.data.status === 200) {
+        setShowConfirmBox(false);
         GetData();
       }
     });
