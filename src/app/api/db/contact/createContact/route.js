@@ -10,7 +10,7 @@ export async function POST(request) {
     }
 
     await sql`
-      INSERT INTO Users (name, email, message)
+      INSERT INTO Contacts (name, email, message)
       VALUES (${name}, ${email}, ${message});
     `;
 
