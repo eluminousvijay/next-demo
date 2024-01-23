@@ -184,14 +184,15 @@ const UserList = ({ data }) => {
       ) : (
         ""
       )}
-      <div
+      {/* <div
         style={{
           position: "fixed",
           left: "0",
           bottom: 0,
           width: "100%",
         }}
-      >
+      > */}
+      <div className="fixed-bottom">
         <Footer />
       </div>
     </>
