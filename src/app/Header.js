@@ -116,6 +116,13 @@ const Header = ({data, user}) => {
           >
             Users
           </Link>
+          <Link
+            href="/inquiry"
+            className={currentPath === "/inquiry" ? styles.selected : ""}
+            onClick={() => handleNavItemClick("inquiry")}
+          >
+            Inquiries
+          </Link>
           <Link href="" onClick={() => handleLogOut()}>
             Logout
           </Link>
