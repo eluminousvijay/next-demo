@@ -14,7 +14,6 @@ const Header = ({data, user}) => {
   const [selectedNavItem, setSelectedNavItem] = useState("");
   const [currentPath, setCurrentPath] = useState("");
   const [userData, setUserData] = useState(data);
-
   const store = useAppStore();
   const dispatch = useAppDispatch();
   const initialized = useRef(false);
@@ -66,7 +65,7 @@ const Header = ({data, user}) => {
       <div className={styles.menuToggle} onClick={toggleMenu}>
         <i className={`fas ${showMenu ? "fa-times" : "fa-bars"}`} />
       </div>
-      {!userData ? (
+      {!userData?.userData ? (
         <nav
           className={`${styles["nav-items"]} ${showMenu ? styles.show : ""}`}
         >

@@ -37,7 +37,7 @@ export const loginUser = async (formData) => {
 
 export const addUser = async (formData) => {
   try {console.log('route>>>>',formData);
-    const res = await fetch(API_BASE_URL_OTHER + "api/db/addUser", {
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/user/addUser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export const addUser = async (formData) => {
 export const updateUser = async (formData) => {
   try {
     console.log("route>>>>", formData);
-    const res = await fetch(API_BASE_URL_OTHER + "api/db/updateUser", {
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/user/updateUser", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export const updateUser = async (formData) => {
 export const deleteUser = async (formData) => {
   try {
     console.log("route>>>>", formData);
-    const res = await fetch(API_BASE_URL_OTHER + "api/db/deleteUser", {
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/user/deleteUser", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -118,6 +118,46 @@ export const createContact = async (formData) => {
   }
 };
 
+export const getUser = async () => {
+  try {
+    // const res = await fetch(API_BASE_URL_OTHER + "api/db/getUsers");
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/user/getUsers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: "",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getInquiries = async () => {
+  try {
+    const res = await fetch(API_BASE_URL_OTHER + "api/db/contact/getContact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: "",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (error) {
+    throw error;
+  }
+};
 
 // export const getUser = (data = {}) => {
 //   return new Promise((resolve, reject) => {
@@ -141,26 +181,8 @@ export const createContact = async (formData) => {
 //     throw error;
 //   }
 // };
-export const getUser = async () => {
-  try {
-    // const res = await fetch(API_BASE_URL_OTHER + "api/db/getUsers");
-     const res = await fetch(API_BASE_URL_OTHER + "api/db/getUsers", {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
-       },
-       body: '',
-     });
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
 
-    return res.json();
-  } catch (error) {
-    throw error;
-  }
-};
 
 export const editUser = async (data) => {
   try {

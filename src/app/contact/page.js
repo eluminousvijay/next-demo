@@ -46,16 +46,6 @@ function ContactForm() {
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
-        {/* <div className={styles.row}>
-        <div className={styles.col}>
-          <label className={styles.label} htmlFor="name"> Name: </label>
-          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
-        </div>
-        <div className={styles.col}>
-          <label className={styles.label} htmlFor="email"> Email: </label>
-          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-        </div>
-      </div> */}
         <div class="row">
           <div class="col">
             <input
@@ -87,7 +77,6 @@ function ContactForm() {
 
         <label className={styles.label} htmlFor="message">
           {" "}
-          Message:{" "}
         </label>
         <textarea
           className={styles.textarea}
@@ -96,6 +85,7 @@ function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={handleChange}
+          placeholder="Message"
           required
         ></textarea>
 
