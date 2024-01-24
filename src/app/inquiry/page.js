@@ -12,9 +12,9 @@ const Contact = () => {
   });
   const getInquiry = () => {
     getInquiries({ }).then((response) => {
-      console.log(">>>>response>>>", response);
       if (response.contacts.length > 0) {
         let inquiryData = response.contacts;
+        console.log(">>>>response>>>", inquiryData);
         setInquiries(inquiryData);
       }
     });
@@ -38,14 +38,14 @@ const Contact = () => {
             </tr>
           </thead>
           <tbody>
-            {inquiry.map((data)=>{
-            <tr>
+            {inquiry.map((data) => (
+            <tr>{data}
               <th scope="row">1</th>
               <td>{data.name}</td>
               <td>{data.email}</td>
               <td>{data.message}</td>
             </tr>
-            })}
+            ))}
           </tbody>
         </table>
       </div>
