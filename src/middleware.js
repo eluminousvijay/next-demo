@@ -6,7 +6,10 @@ export function middleware(request) {
   const decodedTokenObject = decodedTokenString
     ? JSON.parse(decodedTokenString)
     : null;
-  const isUserLoggedIn = decodedTokenObject && decodedTokenObject.token;
+  console.log(">>>>>>>>>>>>>>>>>>>>", decodedTokenObject);
+  console.log(">>>>>>>>>>>>>>>>>>>>", decodedTokenObject.token);
+  // const isUserLoggedIn = decodedTokenObject && decodedTokenObject.token;
+  const isUserLoggedIn = true;
 
   const protectedPaths = ["/user", "/inquiry"];
 
