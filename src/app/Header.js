@@ -129,9 +129,12 @@ const userInfo = useAppSelector((state) => state.data?.userData);
           >
             Inquiries
           </Link>
-          <Link href="" onClick={() => handleLogOut()}>
+          {/* <Link href="" onClick={() => handleLogOut()}>
             Logout
-          </Link>
+          </Link> */}
+          <button variant="btn outline-secondary" onClick={handleLogOut}>
+            Logout
+          </button>
         </nav>
       )}
     </header>
