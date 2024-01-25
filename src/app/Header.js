@@ -9,7 +9,7 @@ import {
   setUserData,
 } from "../lib/features/product/productSlice";
 
-const Header = ({data, user}) => {
+const Header = ({ data, user }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedNavItem, setSelectedNavItem] = useState("");
   const [currentPath, setCurrentPath] = useState("");
@@ -32,7 +32,7 @@ const Header = ({data, user}) => {
     return () => {
       window.removeEventListener("popstate", handleRouteChange);
     };
-  }, []);
+  }, [userData]);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -45,8 +45,12 @@ const Header = ({data, user}) => {
 
   const handleLogOut = () => {
     localStorage.clear();
-    dispatch(setUserData(''));
+    dispatch(initializeUser({ userData: {} }));
   };
+
+  useEffect(() => {
+    setUserData(userData);
+  }, [userData]);
 
   return (
     <header className={styles.header}>
