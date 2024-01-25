@@ -9,6 +9,7 @@ import {
   initializeUser,
   setUserData,
 } from "../../lib/features/product/productSlice";
+import { setCookie } from "nookies";
 
 const Login = ({ user }) => {
   const router = useRouter();
@@ -39,15 +40,15 @@ const Login = ({ user }) => {
     loginUser({
       username: formData.username,
       password: formData.password,
-    }).then((response) => { console.log(">>>>>>>response", response);
+    }).then((response) => {
       if (response.data.status === 200) {
+        setCookie(null, "token", response.data.token, {
+          maxAge: 30 * 24 * 60 * 60, // 30 days
+          path: "/",
+        });
         setUserToken(response.data.token);
         dispatch(setUserData(response.data));
-        // if(response.data.role_id === 1){
-        //   dispatch(adminLogin(response.data));
-        // }else{
-        //   dispatch(loginSuccess(response.data));
-        // }
+        
         router.push("/user", { scroll: false });
       }
     });

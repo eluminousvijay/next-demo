@@ -46,8 +46,8 @@ function ContactForm() {
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div class="row">
-          <div class="col">
+        <div className="row">
+          <div className="col">
             <input
               type="text"
               id="name"
@@ -55,12 +55,12 @@ function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              class="form-control"
+              className="form-control"
               placeholder="Name"
               aria-label="Name"
             />
           </div>
-          <div class="col">
+          <div className="col">
             <input
               type="email"
               id="email"
@@ -68,7 +68,7 @@ function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              class="form-control"
+              className="form-control"
               placeholder="Email"
               aria-label="Email"
             />
