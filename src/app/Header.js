@@ -8,6 +8,7 @@ import {
   initializeUser,
   setUserData,
 } from "../lib/features/product/productSlice";
+import { destroyCookie } from "nookies";
 
 const Header = ({ data, user }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -49,6 +50,7 @@ const userInfo = useAppSelector((state) => state.data?.userData);
 
   const handleLogOut = () => {
     localStorage.clear();
+    destroyCookie(null, "token");
     dispatch(initializeUser({ userData: {} }));
   };
 
