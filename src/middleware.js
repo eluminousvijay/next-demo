@@ -7,7 +7,7 @@ export function middleware(request) {
     ? JSON.parse(decodedTokenString)
     : null;
   console.log(">>>>>>>>>>>>>>>>>>>>", decodedTokenObject);
-  console.log(">>>>>>>>>>>>>>>>>>>>", decodedTokenObject.token);
+  console.log(">>>>>>>>>>>>>>>>>>>>", decodedTokenObject?.token);
   const isUserLoggedIn = decodedTokenObject && decodedTokenObject?.token;
   // const isUserLoggedIn = true;
 
