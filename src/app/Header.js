@@ -9,6 +9,7 @@ import {
   setUserData,
 } from "../lib/features/product/productSlice";
 import { destroyCookie } from "nookies";
+import { useRouter } from "next/navigation";
 
 const Header = ({ data, user }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -18,6 +19,7 @@ const Header = ({ data, user }) => {
   const store = useAppStore();
   const dispatch = useAppDispatch();
   const initialized = useRef(false);
+  const router = useRouter();
 
   if (!initialized.current) {
     dispatch(initializeUser({ userData: user ? user.userData : "" }));
@@ -52,6 +54,7 @@ const userInfo = useAppSelector((state) => state.data?.userData);
     localStorage.clear();
     destroyCookie(null, "token");
     dispatch(initializeUser({ userData: {} }));
+    router.push("/", { scroll: false });
   };
 
   return (
