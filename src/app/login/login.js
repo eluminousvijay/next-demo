@@ -42,8 +42,15 @@ const Login = ({ user }) => {
       password: formData.password,
     }).then((response) => {
       if (response.data.status === 200) {
-        setCookie(null, "token", response.data.token, {
-          maxAge: 30 * 24 * 60 * 60, // 30 days
+        let data = {
+          token : response.data.token,
+          Login : true,
+          status:200
+        }
+        const tokenString = JSON.stringify(data);
+        const encodedToken = btoa(tokenString);
+        setCookie(null, "token", encodedToken, {
+          maxAge: 30 * 24 * 60 * 60,
           path: "/",
         });
         setUserToken(response.data.token);

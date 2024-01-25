@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
-  const cookie = request.cookies.get("token");
-  const isUserLoggedIn = !!cookie;
+  const encodedToken = request.cookies.get("token");
+  const decodedTokenString = encodedToken ? atob(encodedToken) : null;
+  const decodedTokenObject = decodedTokenString
+    ? JSON.parse(decodedTokenString)
+    : null;
+  const isUserLoggedIn = decodedTokenObject && decodedTokenObject.token;
 
   const protectedPaths = ["/user", "/inquiry"];
 
