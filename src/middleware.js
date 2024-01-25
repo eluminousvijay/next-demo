@@ -8,8 +8,8 @@ export function middleware(request) {
     : null;
   console.log(">>>>>>>>>>>>>>>>>>>>", decodedTokenObject);
   console.log(">>>>>>>>>>>>>>>>>>>>", decodedTokenObject.token);
-  // const isUserLoggedIn = decodedTokenObject && decodedTokenObject.token;
-  const isUserLoggedIn = true;
+  const isUserLoggedIn = decodedTokenObject && decodedTokenObject?.token;
+  // const isUserLoggedIn = true;
 
   const protectedPaths = ["/user", "/inquiry"];
 
