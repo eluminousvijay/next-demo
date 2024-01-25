@@ -22,8 +22,11 @@ const Header = ({ data, user }) => {
     dispatch(initializeUser({ userData: user ? user.userData : "" }));
     initialized.current = true;
   }
-
+const userInfo = useAppSelector((state) => state.data?.userData);
   useEffect(() => {
+    if (!userData?.userData) {
+      setUserData(userInfo);
+    } 
     setCurrentPath(window.location.pathname);
     const handleRouteChange = () => {
       setCurrentPath(window.location.pathname);
@@ -32,7 +35,8 @@ const Header = ({ data, user }) => {
     return () => {
       window.removeEventListener("popstate", handleRouteChange);
     };
-  }, [userData]);
+    
+  }, [userData, userInfo]);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -47,10 +51,6 @@ const Header = ({ data, user }) => {
     localStorage.clear();
     dispatch(initializeUser({ userData: {} }));
   };
-
-  useEffect(() => {
-    setUserData(userData);
-  }, [userData]);
 
   return (
     <header className={styles.header}>
