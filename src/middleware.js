@@ -2,15 +2,11 @@ import { NextResponse } from "next/server";
 
 export function middleware(request) {
   const encodedToken = request.cookies.get("token");
-  const decodedTokenString = encodedToken.value
+  const decodedTokenString = encodedToken 
     ? atob(encodedToken.value)
     : null;
   const decodedTokenObject = decodedTokenString ? JSON.parse(decodedTokenString):null; 
-  console.log(">>>>>>>>>>>>>>>>>>>>", decodedTokenObject.token);
-  // console.log(">>>>>>>>>>>>>>>>>>>>11", decodedTokenObject?.value);
-  const isUserLoggedIn = decodedTokenObject && decodedTokenObject?.token;
-  // const isUserLoggedIn = true;
-
+  const isUserLoggedIn = decodedTokenObject && decodedTokenObject.token;
   const protectedPaths = ["/user", "/inquiry"];
 
   const requiresAuthentication = protectedPaths.some((path) =>
