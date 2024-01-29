@@ -45,7 +45,7 @@ const Login = ({ user }) => {
         let data = {
           token : response.data.token,
           Login : true,
-          status:200
+          status: 200
         }
         const tokenString = JSON.stringify(data);
         const encodedToken = btoa(tokenString);
