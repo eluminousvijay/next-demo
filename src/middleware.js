@@ -23,5 +23,15 @@ export function middleware(request) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
+  const otherPaths = ["/login"];
+
+  const withoutAuth = otherPaths.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  );
+
+  if (withoutAuth && isUserLoggedIn) {
+    return NextResponse.redirect(new URL("/user", request.url));
+  }
+
   return null;
 }
