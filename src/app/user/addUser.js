@@ -31,6 +31,7 @@ const AddUser = ({ onSubmit, userData }) => {
   };
 
   const handleCloseModal = () => {
+    setLoading(false);
     setShowModal(false);
   };
 
@@ -193,26 +194,25 @@ const AddUser = ({ onSubmit, userData }) => {
                       <option value="inactive">Inactive</option>
                     </select>
                   </div>
+                  <div className="modal-footer">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={handleCloseModal}
+                    >
+                      Close
+                    </button>
+                    <button type="submit" className="btn btn-primary" disabled={loading} >
+                      {loading ? (
+                        <div className="spinner-border" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                        </div>
+                      ) : (
+                        <>Submit</>
+                      )}
+                    </button>
+                  </div>
                 </form>
-              </div>
-
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={handleCloseModal}
-                >
-                  Close
-                </button>
-                <button type="submit" className="btn btn-primary" disabled={loading}>
-                  {loading ? (
-                    <div className="spinner-border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div>
-                  ) : (
-                    <>Submit</>
-                  )}
-                </button>
               </div>
             </div>
           </div>
