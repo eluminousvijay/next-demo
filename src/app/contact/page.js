@@ -15,14 +15,16 @@ function ContactForm() {
     message: "",
   });
 
+  const [loading,setLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     createContact({
       name: formData.name,
       email: formData.email,
       message: formData.message,
     }).then((response) => {
-      console.log(">>>>>>>response", response);
+      setLoading(false);
       if (response.data.status === 200) {
         setFormData({
           name: "",
@@ -89,8 +91,14 @@ function ContactForm() {
           required
         ></textarea>
 
-        <button className={styles.button} type="submit">
-          Submit
+        <button className={styles.button} type="submit" disabled={loading}>
+          {loading ? (
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          ) : (
+            <>Submit</>
+          )}
         </button>
       </form>
       <Toaster position="bottom-center" />

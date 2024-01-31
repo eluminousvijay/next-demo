@@ -49,6 +49,7 @@ const AddUser = ({ onSubmit, userData }) => {
       }).then((response) => {
         console.log(">>>>>>>response", response);
         if (response.data.status === 200) {
+          setLoading(false);
           onSubmit();
           setFormData({
             username: "",
@@ -72,8 +73,8 @@ const AddUser = ({ onSubmit, userData }) => {
         userEmail: formData.email,
         userMobile: formData.mobile,
       }).then((response) => {
-        console.log(">>>>>>>response", response);
         if (response.data.status === 200) {
+          setLoading(false);
           onSubmit();
           setFormData({
             username: "",
@@ -86,7 +87,6 @@ const AddUser = ({ onSubmit, userData }) => {
           handleCloseModal();
         }
       });
-      setLoading(false);
     }
   };
 
@@ -204,7 +204,7 @@ const AddUser = ({ onSubmit, userData }) => {
                 >
                   Close
                 </button>
-                <button type="submit" className="btn btn-primary"  disabled={loading}>
+                <button type="submit" className="btn btn-primary" disabled={loading}>
                   {loading ? (
                     <div className="spinner-border" role="status">
                       <span className="visually-hidden">Loading...</span>
