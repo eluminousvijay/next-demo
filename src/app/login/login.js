@@ -30,6 +30,8 @@ const Login = ({ user }) => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -37,11 +39,13 @@ const Login = ({ user }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     loginUser({
       username: formData.username,
       password: formData.password,
     }).then((response) => {
       if (response.data.status === 200) {
+        setLoading(false);
         let data = {
           token : response.data.token,
           Login : true,
@@ -95,8 +99,14 @@ const Login = ({ user }) => {
             />
           </div>
 
-          <button className={styles.login_btn} type="submit">
-            Login
+          <button className={styles.login_btn} type="submit" disabled={loading}>
+            {loading ? (
+              <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : (
+              <>Login</>
+            )}
           </button>
         </form>
       </div>

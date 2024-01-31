@@ -11,6 +11,7 @@ const AddUser = ({ onSubmit, userData }) => {
     userRole: "Admin",
     status: "active",
   });
+  const [loading,setLoading] = useState(false);
   console.log("data", userData);
   useEffect(() => {
     // Check if userData contains data before opening the modal
@@ -35,6 +36,7 @@ const AddUser = ({ onSubmit, userData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!userData) {
       addUser({
         userName: formData.username,
@@ -84,6 +86,7 @@ const AddUser = ({ onSubmit, userData }) => {
           handleCloseModal();
         }
       });
+      setLoading(false);
     }
   };
 
@@ -201,8 +204,14 @@ const AddUser = ({ onSubmit, userData }) => {
                 >
                   Close
                 </button>
-                <button type="submit" className="btn btn-primary">
-                  Submit
+                <button type="submit" className="btn btn-primary"  disabled={loading}>
+                  {loading ? (
+                    <div className="spinner-border" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                  ) : (
+                    <>Submit</>
+                  )}
                 </button>
               </div>
             </div>
