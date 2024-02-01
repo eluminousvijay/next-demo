@@ -32,7 +32,7 @@ const UserList = ({ data }) => {
   useEffect(() => {
     setUserToken(userInfo.access_token);
     GetData();
-  }, []);
+  });
 
   const GetData = () => {
     getUser({ search_input: "" }).then((response) => {

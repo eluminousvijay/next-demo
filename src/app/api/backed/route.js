@@ -121,12 +121,16 @@ export const createContact = async (formData) => {
 export const getUser = async () => {
   try {
     // const res = await fetch(API_BASE_URL_OTHER + "api/db/getUsers");
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    
     const res = await fetch(API_BASE_URL_OTHER + "api/db/user/getUsers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: "",
+      signal: signal, 
     });
 
     if (!res.ok) {
