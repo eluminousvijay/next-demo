@@ -84,7 +84,7 @@ const UserList = ({ data }) => {
 
   return (
     <>
-      <Header data={userInfo} />
+      {/* <Header data={userInfo} /> */}
       <div className={styles.container}>
         <AddUser onSubmit={handleAddUser} userData={selectedUserData} />
         <h1 className={styles.title}>User Listing</h1>

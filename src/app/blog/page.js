@@ -7,7 +7,6 @@ import BlogPage from "./blog";
 const blogPage = () => {
   return (
     <>
-      <Header />
       <BlogPage parentStyles={styles} />
       <Footer />
     </>

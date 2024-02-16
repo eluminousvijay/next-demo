@@ -25,7 +25,6 @@ const Contact = () => {
   return (
     <>
       <main className={styles.main}>
-        <Header />
         <div className={styles.intro} id="main">
           <h1>Inquiries</h1>
         </div>

@@ -20,7 +20,7 @@ export function middleware(request) {
   );
 
   if (requiresAuthentication && !isUserLoggedIn) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    // return NextResponse.redirect(new URL("/login", request.url));
   }
 
   const otherPaths = ["/login"];

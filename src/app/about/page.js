@@ -8,7 +8,6 @@ const About = () => {
   return (
     <main className={styles.main}>
       <>
-        <Header />
         <main>
           <div className={styles.intro} id="main">
             <h1>Welcome to My Creative Space</h1>

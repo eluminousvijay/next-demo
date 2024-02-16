@@ -112,7 +112,6 @@ const Contact = () => {
     <>
       <main className={styles.main}>
         {/* ... (other meta tags, title, and styles) */}
-        <Header />
         <div className={styles.intro} id="main">
           <h1>Contact Us</h1>
           <p>

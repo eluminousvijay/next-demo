@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <>
-        <Header />
         <main>
           <div className={styles.intro} id="main">
             <h1>A Web Developer</h1>

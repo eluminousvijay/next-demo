@@ -1,13 +1,11 @@
 import React from "react";
 import Login from "./login";
 import styles from "../page.module.css";
-import Header from "../Header";
 import Footer from "../Footer";
 
 const loginPage = () => {
   return (
     <main className={styles.main}>
-      <Header />
       <Login />
       <div className={styles.achievements}>
         <div className={styles.work}>
