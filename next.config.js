@@ -29,6 +29,10 @@ module.exports = {
       "kra.betaeserver.com",
       "https://developervijay.vercel.app",
       "i.pinimg.com",
+      "images.unsplash.com",
+      "images.pexels.com",
+      "imgupscaler.com",
+      "thumbs.dreamstime.com",
     ],
   },
 };
