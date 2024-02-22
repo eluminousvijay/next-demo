@@ -29,7 +29,7 @@ const UserList = ({ data }) => {
   const [showConfirmBox, setShowConfirmBox] = useState(false);
   const [userID, setUserID] = useState();
 
-  useEffect(() => {
+  useEffect(() => {console.log("store", store.getState().data.userData.userData);
     setUserToken(userInfo.access_token);
     GetData();
   }, []);
